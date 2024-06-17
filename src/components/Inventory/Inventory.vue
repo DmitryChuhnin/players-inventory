@@ -16,7 +16,7 @@
           {{ availableFilters[activeFilterId].name.toUpperCase() }}
         </div>
         <div class="grid-wrapper">
-          <Item v-for="(item, index) in inventoryItems" :key="index.id" :item="item"/>
+          <Item v-for="(item, index) in inventoryItems" :key="index" :item="item"/>
         </div>
       </div>
     </div>
