@@ -84,6 +84,8 @@ const getImageUrl = (imageName) => {
 
     img {
       opacity: 50%;
+      width: 100%;
+      height: 100%;
     }
 
     img:hover {
@@ -101,4 +103,32 @@ const getImageUrl = (imageName) => {
     }
   }
 }
+
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 16px;
+    padding: 8px 0;
+
+    .filter {
+      width: 32px;
+      height: 32px;
+
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .filters {
+    gap: 8px;
+
+    .filter {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
 </style>

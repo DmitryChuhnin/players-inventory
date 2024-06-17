@@ -32,4 +32,11 @@ const props = defineProps({
     font-weight: 700;
   }
 }
+
+// Скрываем тултип, на мобильных устройствах
+@media (max-width: 600px) {
+  .tooltip {
+    display: none;
+  }
+}
 </style>

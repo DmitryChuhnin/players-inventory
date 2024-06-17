@@ -6,7 +6,7 @@
     <div v-if="item?.charges" class="charges">
       <div>{{ item.charges }}/{{ item.maxCharges }}</div>
     </div>
-    <div v-if="remainingCooldown > 0" class="cooldown">
+    <div v-if="item?.cooldown && remainingCooldown > 0" class="cooldown">
       <img src="@/assets/icons/timer.svg" alt="Cooldown Icon" class="cooldown-icon" />
       {{ remainingCooldown }}s
     </div>
@@ -88,6 +88,7 @@ onUnmounted(() => {
   width: 94px;
   height: 94px;
   cursor: default;
+  font-family: Rubik, sans-serif;
 
   img {
     max-width: 85%;
@@ -133,7 +134,8 @@ onUnmounted(() => {
     color: white;
     font-size: 17px;
     line-height: 17px;
-    font-weight: 700;
+    font-weight: 400;
+    z-index: 2;
   }
 
   .charges {
@@ -143,7 +145,7 @@ onUnmounted(() => {
     width: 0;
     height: 0;
     border-right: 62px solid transparent;
-    border-top: 36px solid rgba(6, 6, 6, 0.65); // Цвет треугольника
+    border-top: 40px solid rgba(6, 6, 6, 0.65); // Цвет треугольника
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,12 +154,11 @@ onUnmounted(() => {
       z-index: 1;
       position: absolute;
       left: 5px;
-      bottom: 14px;
+      bottom: 18px;
       color: white;
       font-size: 17px;
       line-height: 17px;
-      font-weight: 700;
-
+      font-weight: 400;
     }
   }
 
@@ -190,28 +191,83 @@ onUnmounted(() => {
 
 }
 
+@media (max-width: 600px) {
+  .item {
+    width: 84px;
+    height: 84px;
 
-//.count, .charges, .cooldown {
-//  position: absolute;
-//  bottom: 5px;
-//  right: 5px;
-//  background-color: rgba(0, 0, 0, 0.5);
-//  color: white;
-//  padding: 2px 5px;
-//  border-radius: 3px;
-//}
-//
-//.tooltip {
-//  position: absolute;
-//  bottom: 100%;
-//  left: 50%;
-//  transform: translateX(-50%);
-//  margin-bottom: 5px;
-//  padding: 5px;
-//  background-color: #333;
-//  color: white;
-//  border-radius: 3px;
-//  white-space: nowrap;
-//  z-index: 10;
-//}
+    .count {
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    .charges {
+      z-index: 2;
+      div {
+        font-size: 14px;
+        line-height: 14px;
+      }
+    }
+
+    .cooldown {
+      font-size: 14px;
+      line-height: 14px;
+      .cooldown-icon {
+        width: 18px;
+        height: 18px;
+        margin-bottom: 2px;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  .item {
+    width: 74px;
+    height: 74px;
+  }
+}
+
+@media (max-width: 450px) {
+  .item {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 450px) {
+  .item {
+    width: 54px;
+    height: 54px;
+
+    .count {
+      font-size: 10px;
+      line-height: 10px;
+    }
+
+    .charges {
+      border-right: 30px solid transparent;
+      border-top: 30px solid rgba(6, 6, 6, 0.65);
+
+      div {
+        font-size: 10px;
+        line-height: 10px;
+        bottom: 18px;
+        left: 3px;
+      }
+    }
+
+    .cooldown {
+      font-size: 10px;
+      line-height: 10px;
+      .cooldown-icon {
+        width: 14px;
+        height: 14px;
+        margin-bottom: 1px;
+      }
+    }
+  }
+}
+
 </style>

@@ -16,7 +16,7 @@
           {{ availableFilters[activeFilterId].name.toUpperCase() }}
         </div>
         <div class="grid-wrapper">
-          <Item v-for="(item, index) in inventoryItems" :key="index" :item="item"/>
+          <Item v-for="(item, index) in inventoryItems" :key="index.id" :item="item"/>
         </div>
       </div>
     </div>
@@ -69,6 +69,7 @@ const inventoryItems = computed(() => {
   display: flex;
   flex-direction: column;
   max-width: 562px;
+  min-width: 300px;
   max-height: 865px;
   height: 100%;
 
@@ -99,6 +100,7 @@ const inventoryItems = computed(() => {
         width: 100%;
         height: 25px;
         color: #FFFFFF;
+        font-family: Work Sans, sans-serif;
         font-size: 20px;
         font-weight: 900;
         line-height: 25px;
@@ -113,6 +115,32 @@ const inventoryItems = computed(() => {
         grid-template-rows: repeat(5, 1fr);
         overflow-y: auto;
         max-height: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .inventory {
+    &__head {
+      height: auto;
+    }
+
+    &-content {
+      flex-direction: column;
+      height: auto;
+
+      &__filters {
+        width: 100%;
+      }
+
+      &__grid {
+        padding: 8px 8px;
+        .title-box {
+          font-size: 16px;
+          line-height: 16px;
+          height: 20px;
+        }
       }
     }
   }

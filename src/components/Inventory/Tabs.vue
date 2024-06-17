@@ -35,6 +35,7 @@ const closeTabs = () => {
   border: 1px solid #000000;
   background-color: #393839;
   color: #FFFFFF78;
+  font-family: Work Sans, sans-serif;
   font-size: 24px;
   font-weight: 900;
   cursor: pointer;
@@ -57,6 +58,9 @@ const closeTabs = () => {
   cursor: pointer;
   width: 59px;
   height: 59px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img {
     width: 24px;
     height: 24px;
@@ -65,5 +69,25 @@ const closeTabs = () => {
 
 .close-button:hover {
   background-color: #cc3232;
+}
+
+@media (max-width: 600px) {
+  .tabs {
+    height: auto;
+    .tab-button {
+      height: 39px;
+      font-size: 16px;
+    }
+    .close-button {
+      width: 39px;
+      height: 39px;
+      padding: 8px;
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
 }
 </style>
